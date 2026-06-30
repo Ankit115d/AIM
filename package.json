@@ -1,5 +1,6 @@
 {
-  "dependencies": {
-    "react-router-dom": "^7.16.0"
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "start": "node backend/server.js"
   }
 }
