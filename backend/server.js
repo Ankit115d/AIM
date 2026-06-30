@@ -18,8 +18,22 @@ app.set("trust proxy", 1);
 // ----------------------
 
 // Security headers
-app.use(helmet());
-
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://accounts.google.com", "https://apis.google.com"],
+        scriptSrcElem: ["'self'", "https://accounts.google.com", "https://apis.google.com"],
+        connectSrc: ["'self'", "https://accounts.google.com"],
+        frameSrc: ["'self'", "https://accounts.google.com"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        fontSrc: ["'self'", "https://cdn.jsdelivr.net"],
+        imgSrc: ["'self'", "data:", "https://*.googleusercontent.com"],
+      },
+    },
+  })
+);
 // Remove Express fingerprint
 app.disable("x-powered-by");
 
