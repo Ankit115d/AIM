@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api/admin/requests",
+  baseURL: "/api/admin/requests",
 });
 
 const authHeaders = () => {
